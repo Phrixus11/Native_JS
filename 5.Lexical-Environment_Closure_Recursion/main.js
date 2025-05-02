@@ -13,6 +13,8 @@ const sqr = (num) => {
     for (let i = 0; i < 1000000000; i++) {
         result++
     }
+    console.log('result');
+    
     return result
 }
 
@@ -20,8 +22,9 @@ const memoize = function (foo) {
     let cache = new Map
     function setCache(num) {
         if (!cache.has(num)){
-            cache.set(num, foo(num))
-            return foo(num)
+            let result = foo(num)
+            cache.set(num, result)
+            return result
         } else {
             return cache.get(num)
         }
@@ -29,14 +32,14 @@ const memoize = function (foo) {
     return setCache
 }
 
-memoizedSqr = memoize(sqr);
+let memoizedSqr = memoize(sqr);
 
 
 
-console.log(memoizedSqr(5)) // calculation
-console.log(memoizedSqr(7)) // calculation
-console.log(memoizedSqr(6)) // calculation
-console.log(memoizedSqr(5)) // from cache
-console.log(memoizedSqr(7)) // from cache
-console.log(memoizedSqr(6)) // from cache
+// console.log(memoizedSqr(5)) // calculation
+// console.log(memoizedSqr(7)) // calculation
+// console.log(memoizedSqr(6)) // calculation
+// console.log(memoizedSqr(5)) // from cache
+// console.log(memoizedSqr(7)) // from cache
+// console.log(memoizedSqr(6)) // from cache
 
