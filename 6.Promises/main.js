@@ -398,12 +398,22 @@ const promise1 = new Promise((res, rej) => {
 });
 
 
-promise1
-    .catch((t) => t + "catch1")
-    .catch((t) => t + "catch2")
-    .then((t) => t + "then1")
-    .finally((t) => t + "finally")
-    .then((t) => console.log(t)); /// ??
+// promise1
+//     .catch((t) => t + "catch1")
+//     .catch((t) => t + "catch2")
+//     .then((t) => t + "then1")
+//     .finally((t) => t + "finally")
+//     .then((t) => console.log(t)); /// ??
 
-    console.log('reject1 + catch1 + then1');
-    
+//     console.log('reject1 + catch1 + then1');
+
+
+    promise1
+    .catch((t) => {
+
+    })
+    .then((t) => {
+        console.log('then',t)
+    });
+
+
